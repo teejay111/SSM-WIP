@@ -1,0 +1,87 @@
+<!-- Navbar -->
+<nav
+  class="navbar navbar-expand-sm bg-dark navbar-dark"
+>
+  <div class="container">
+    <!-- Brand -->
+    <a
+      class="navbar-brand waves-effect"
+      href="{% url 'store' %}"
+      target="_blank"
+    >
+    <img height="50" width="50" src="media\soul sound-1.jpg">
+    <strong class="blue-text">Soul Sound Music UK</strong>
+      
+    </a>
+
+    <!-- Collapse -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-effect" href="{% url 'store' %}"
+            >Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'cart' %}">
+            <span class="badge red z-depth-1 mr-1" id="cartTotal"
+              >{{cartTotal}}</span
+            >
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'track-order' %}"
+            >Track Order
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      <!-- Right -->
+
+      {% if not request.session.uid %}
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'login' %}"
+            >Login
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      {% else %}
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'logout' %}"
+            >Logout
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->
